@@ -111,7 +111,11 @@ def render_frame(meta, video_width, video_height, dest, width=632):
     canvas_width = width + 88
     margin = 60
     content = canvas_width - margin*2
-    media_h = round(content * video_height / video_width)
+    # X limits tall media to about 510 px high in a 600 px wide post.
+    full_width_height = round(content * video_height / video_width)
+    max_media_height = round(510 * width / 600)
+    media_h = min(full_width_height, max_media_height)
+    media_w = content if media_h == full_width_height else round(media_h * video_width / video_height)
     body = font(22)
     name_font = font(20, True)
     handle_font = font(18)
@@ -159,7 +163,7 @@ def render_frame(meta, video_width, video_height, dest, width=632):
         draw.text((margin,text_y),line,font=body,fill=WHITE,features=['kern', 'liga'])
         text_y += 29
     media_y = text_y+18
-    media_box=(margin,media_y,margin+content,media_y+media_h)
+    media_box=(margin,media_y,margin+media_w,media_y+media_h)
     footer_y=media_y+media_h+24
     if meta.get('created_at'):
         try:
