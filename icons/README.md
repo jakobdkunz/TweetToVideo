@@ -1,0 +1,1 @@
+The SVG paths in this folder were copied from the live controls on https://x.com/davj/status/2045949292897022078 on September 25, 2026. Selectors: [data-testid=reply], [data-testid=retweet], [data-testid=like], [data-testid=bookmark], button[aria-label="Share post"], svg[data-testid=icon-verified], and button[aria-label="More"] svg.

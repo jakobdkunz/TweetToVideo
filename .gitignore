@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.mp4
+.DS_Store
+.env
+cookies*.txt
